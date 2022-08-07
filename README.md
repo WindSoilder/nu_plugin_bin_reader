@@ -1,5 +1,5 @@
 # Nu plugin binary reader
-A general binary parser based on [kaitai struct](https://formats.kaitai.io/).
+A [nushell](https://www.nushell.sh/) plugin to read binary dataA general binary parser based on [kaitai struct](https://kaitai.io/).
 
 ## Require python version
 python3.7+
@@ -26,3 +26,7 @@ open FiraCode-VF.ttf | from-binary ttf | get directory_table
 ## Note
 The `kaitaistruct.py` is just a copy of [kaitai struct python runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime), put it directly here, so we don't need extra requirements.
 And `reader/*.py` are just a copy of auto-generated parser, DON'T CHANGE IT.
+
+## For more references
+- [Nushell plugin system](https://www.nushell.sh/book/plugins.html)
+- [kaitai struct](https://kaitai.io/)
