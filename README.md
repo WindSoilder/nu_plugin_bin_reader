@@ -1,5 +1,5 @@
 # Nu plugin binary reader
-A [nushell](https://www.nushell.sh/) plugin to read binary dataA general binary parser based on [kaitai struct](https://kaitai.io/).
+A [nushell](https://www.nushell.sh/) plugin to read binary data
 
 ## Require python version
 python3.7+
