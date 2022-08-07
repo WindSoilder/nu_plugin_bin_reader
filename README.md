@@ -1,6 +1,9 @@
 # Nu plugin binary reader
 A [nushell](https://www.nushell.sh/) plugin to read binary data
 
+![parse png and ttf](screenshots/demo.gif)
+![parse gif](examples/demo2.gif)
+
 ## Prerequisite
 1. `nushell`, It's a nushell plugin, so you need it.
 2. `python3.7+`
