@@ -3,7 +3,7 @@ A [nushell](https://www.nushell.sh/) plugin to read binary data
 
 # Screenshots
 ## Parsing png and ttf
-![parse png and ttf](screenshots/demo.gif)
+![parse png and ttf](examples/demo.gif)
 
 ## Download lib and parse library
 ![parse gif](examples/demo3.gif)
