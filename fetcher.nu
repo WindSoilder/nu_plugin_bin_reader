@@ -2,6 +2,7 @@ def find-plugin-path [] {
     open $nu.plugin-path | find nu_plugin_bin_reader | split column ' ' | get column2 | ansi strip | get 0
 }
 
+# get all libs available on kaitai gallery, the output is sorted in alphabetical order
 export def all-libs [] {
     [
         "android_bootldr_asus", "android_bootldr_huawei", "android_bootldr_qcom", "android_img",
@@ -30,15 +31,18 @@ export def all-libs [] {
         "nt_mdt_pal", "specpr", "efivar_signature_list", "openpgp_message", "ssh_public_key", "asn1_der", "bson",
         "google_protobuf", "microsoft_cfb", "msgpack", "php_serialized_value", "python_pickle", "ruby_marshal", "regf",
         "windows_lnk_file", "windows_minidump", "windows_resource_file", "windows_shell_items", "windows_systemtime"
-    ]
+    ] | sort
 }
 
-export def get-lib-path [name: string] {
+def get-lib-path [name: string] {
     let plugin_dir = (find-lib-path | path dirname)
     $plugin_dir | path join "reader" $"($name).py"
 }
 
-export def fetch-bin-lib [name: string] {
+# download binary parsing lib from kaitai gallery
+export def fetch-lib [
+    name: string  # lib name
+] {
     echo $"going to download lib ($name)"
     let url = $"https://formats.kaitai.io/($name)/src/python/($name).py"
     let content = fetch $url
@@ -48,7 +52,10 @@ export def fetch-bin-lib [name: string] {
     echo "done"
 }
 
-export def remove-lib [name: string] {
+# remove binary parsing lib local
+export def remove-lib [
+    name: string  # lib name
+] {
     let lib_path = get-lib-path $name
     if ($lib_path | path exists) {
         rm $lib_path
@@ -57,11 +64,15 @@ export def remove-lib [name: string] {
     }
 }
 
+# remove all binary parsing libs
 export def remove-all-libs [] {
     let plugin_dir = (find-lib-path | path dirname)
     rm -rf ($plugin_dir | path join "reader" "*")
 }
 
+# fetch all libs available on kaitai gallery
+#
+# Note: It's recommend to use `fetch-lib` to download the lib you need
 export def fetch-all-libs [] {
     all-libs | each { |it| fetch-bin-lib $it }
 }
