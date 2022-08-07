@@ -130,14 +130,22 @@ def process_call(plugin_call):
 
 
 def handle(binary_data, format, span):
-    if format == "png":
-        from reader.png import Png
+    try:
+        if format == "png":
+            from reader.png import Png
 
-        data = Png(KaitaiStream(BytesIO(binary_data)))
-    elif format == "ttf":
-        from reader.ttf import Ttf
+            data = Png(KaitaiStream(BytesIO(binary_data)))
+        elif format == "ttf":
+            from reader.ttf import Ttf
 
-        data = Ttf(KaitaiStream(BytesIO(binary_data)))
+            data = Ttf(KaitaiStream(BytesIO(binary_data)))
+
+        elif format == "gif":
+            from reader.gif import Gif
+
+            data = Gif(KaitaiStream(BytesIO(binary_data)))
+    except ImportError as e:
+        raise RuntimeError(f"Can't find `{format}` binary reading lib, you should download it first")
     a = kaitai_obj_to_dict(data)
     return to_nu_value(a, span)
 

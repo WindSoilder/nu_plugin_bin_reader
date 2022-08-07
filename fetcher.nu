@@ -35,7 +35,7 @@ export def all-libs [] {
 }
 
 def get-lib-path [name: string] {
-    let plugin_dir = (find-lib-path | path dirname)
+    let plugin_dir = (find-plugin-path | path dirname)
     $plugin_dir | path join "reader" $"($name).py"
 }
 
@@ -43,11 +43,14 @@ def get-lib-path [name: string] {
 export def fetch-lib [
     name: string  # lib name
 ] {
+    if (not (all-libs | any? ($it == $name))) {
+        error make -u {msg: $"Library `($name)` is not supported, run `all-libs` to check for all available libs"}
+    }
     echo $"going to download lib ($name)"
     let url = $"https://formats.kaitai.io/($name)/src/python/($name).py"
     let content = fetch $url
     let target_path = get-lib-path $name
-    echo $"download complete, save it to ($target_path)"
+    echo $"download complete, begin to save"
     $content | save $target_path
     echo "done"
 }
@@ -66,7 +69,7 @@ export def remove-lib [
 
 # remove all binary parsing libs
 export def remove-all-libs [] {
-    let plugin_dir = (find-lib-path | path dirname)
+    let plugin_dir = (find-plugin-path | path dirname)
     rm -rf ($plugin_dir | path join "reader" "*")
 }
 
