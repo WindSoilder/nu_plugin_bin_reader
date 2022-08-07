@@ -1,6 +1,26 @@
 # Nu plugin binary reader
 A [nushell](https://www.nushell.sh/) plugin to read binary data
 
+```
+     ┌───────┐
+     │  png  ├────────────────────┐
+     └───────┘                    │
+                                  │
+      ┌─────┐             ┌───────▼─────────────┐
+      │ ttf ├────────────►│                     │
+      └─────┘             │      Nushell        ├─────►Structured data
+                          │                     │
+     ┌───────┐            │                     │
+     │  bmp  ├───────────►└─────────────────────┘
+     └───────┘                   ▲
+                                 │
+    ┌─────────┐                  │
+    │   gif   ├──────────────────┘
+    └─────────┘
+        ...
+```
+
+
 # Screenshots
 ## Parsing png and ttf
 ![parse png and ttf](examples/demo.gif)
