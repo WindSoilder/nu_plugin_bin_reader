@@ -12,6 +12,14 @@ register -e json plugin.py
 
 It will introduce a new command: `from-binary`.  So you can just play with it.
 
+2. download libs
+There is `downloader.nu` to help you download binary reader.  You can do something like this:
+
+```
+> use downloader *
+> downloader fetch-bin-lib png
+```
+
 ## Usage example
 1. read and parse png file:
 ```
@@ -22,6 +30,8 @@ open capture.PNG | from-binary png | get ihdr
 ```
 open FiraCode-VF.ttf | from-binary ttf | get directory_table
 ```
+
+
 
 ## Note
 The `kaitaistruct.py` is just a copy of [kaitai struct python runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime), put it directly here, so we don't need extra requirements.
