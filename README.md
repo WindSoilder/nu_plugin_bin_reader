@@ -1,8 +1,12 @@
 # Nu plugin binary reader
 A [nushell](https://www.nushell.sh/) plugin to read binary data
 
+# Screenshots
+## Parsing png and ttf
 ![parse png and ttf](screenshots/demo.gif)
-![parse gif](examples/demo2.gif)
+
+## Download lib and parse library
+![parse gif](examples/demo3.gif)
 
 ## Prerequisite
 1. `nushell`, It's a nushell plugin, so you need it.
