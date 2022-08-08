@@ -25,7 +25,7 @@ A [nushell](https://www.nushell.sh/) plugin to read binary data
 ## Parsing png and ttf
 ![parse png and ttf](examples/demo.gif)
 
-## Download lib and parse library
+## Download lib and parse binary
 ![parse gif](examples/demo3.gif)
 
 ## Prerequisite
@@ -103,7 +103,7 @@ use fetcher.nu
 fetcher fetch-all-libs
 ```
 
-It'll take several minutes to download all binary parsing libs in kaitai gallery.
+It'll take several minutes to download all binary parsing libs which exists in kaitai gallery.
 
 ## For more references
 - [Nushell plugin system](https://www.nushell.sh/book/plugins.html)

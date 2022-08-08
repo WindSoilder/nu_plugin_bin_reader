@@ -15,10 +15,10 @@ def kaitai_obj_to_dict(obj):
 
 
 def to_nu_value(obj, span):
-    return {"Value": to_nu_value_impl(obj, span)}
+    return {"Value": _to_nu_value_impl(obj, span)}
 
 
-def to_nu_value_impl(obj, span):
+def _to_nu_value_impl(obj, span):
     # check for single builtin type.
     nu_type_table = {
         str: "String",
@@ -34,13 +34,13 @@ def to_nu_value_impl(obj, span):
         values = []
         for k, v in obj.items():
             cols.append(k)
-            values.append(to_nu_value_impl(v, span))
+            values.append(_to_nu_value_impl(v, span))
         return {"Record": {"cols": cols, "vals": values, "span": span}}
     # list should convert to List.
     elif isinstance(obj, list):
         values = []
         for item in obj:
-            values.append(to_nu_value_impl(item, span))
+            values.append(_to_nu_value_impl(item, span))
         return {"List": {"vals": values, "span": span}}
     # bytes should convert to nushell Bytes
     elif isinstance(obj, (bytes, bytearray)):

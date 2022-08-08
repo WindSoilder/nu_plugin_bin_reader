@@ -142,8 +142,8 @@ def handle(binary_data, format, span):
         reader_class_name = "".join(format.replace("_", " ").title().split(" "))
         reader = getattr(module, reader_class_name)
         data = reader(KaitaiStream(BytesIO(binary_data)))
-        a = kaitai_obj_to_dict(data)
-        return to_nu_value(a, span)
+        py_dict = kaitai_obj_to_dict(data)
+        return to_nu_value(py_dict, span)
 
 
 def plugin():
