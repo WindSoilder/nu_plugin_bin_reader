@@ -30,7 +30,7 @@ A [nushell](https://www.nushell.sh/) plugin to read binary data
 
 ## Prerequisite
 1. `nushell`, It's a nushell plugin, so you need it.
-2. `python3.7+`
+2. `python3.6+`
 
 ## Usage
 1. register the plugin to nushell
