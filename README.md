@@ -42,10 +42,11 @@ It will introduce a new command: `from-binary`.  So you can play with it
 You can just do it once.
 
 2. fetch libs
+
 There is `fetcher.nu` to help you download binary reader.  You can do something like this:
 
 ```
-> use fetcher
+> use fetcher.nu
 > fetcher fetch-lib png
 ```
 
@@ -91,7 +92,8 @@ So it will output the following:
 
 ## Note
 The `kaitaistruct.py` is just a copy of [kaitai struct python runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime), put it directly here, so we don't need extra requirements.  DON'T CHANGE IT.
-And `reader/*.py` are just a copy of auto-generated parser, DON'T CHANGE IT.
+
+`reader/*.py` are just a copy of auto-generated parser, DON'T CHANGE IT.
 
 ## For more references
 - [Nushell plugin system](https://www.nushell.sh/book/plugins.html)
