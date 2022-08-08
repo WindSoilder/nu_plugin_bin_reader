@@ -95,6 +95,16 @@ The `kaitaistruct.py` is just a copy of [kaitai struct python runtime](https://g
 
 `reader/*.py` are just a copy of auto-generated parser, DON'T CHANGE IT.
 
+To keep the repo as small as possible, it doesn't provide all parsing libs by default, and just provide `png`, `ttf` for showcase.
+
+If you need all parsing lib, just do the following:
+```
+use fetcher.nu
+fetcher fetch-all-libs
+```
+
+It'll take several minutes to download all binary parsing libs in kaitai gallery.
+
 ## For more references
 - [Nushell plugin system](https://www.nushell.sh/book/plugins.html)
 - [kaitai struct](https://kaitai.io/)
