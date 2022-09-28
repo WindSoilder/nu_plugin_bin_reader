@@ -35,7 +35,7 @@ A [nushell](https://www.nushell.sh/) plugin to read binary data
 ## Usage
 1. register the plugin to nushell
 ```
-register -e json plugin.py
+register nu_plugin_bin_reader.py
 ```
 
 It will introduce a new command: `from-binary`.  So you can play with it

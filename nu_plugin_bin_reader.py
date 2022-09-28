@@ -146,7 +146,18 @@ def handle(binary_data, format, span):
         return to_nu_value(py_dict, span)
 
 
+def tell_nushell_encoding():
+    import sys
+    sys.stdout.write(chr(4))
+    for ch in "json":
+        sys.stdout.write(chr(ord(ch)))
+    sys.stdout.flush()
+
+
 def plugin():
+    # tell nushell our encoding.
+    tell_nushell_encoding()
+
     call_str = ",".join(sys.stdin.readlines())
     plugin_call = json.loads(call_str)
 
