@@ -43,7 +43,7 @@ def get-lib-path [name: string] {
 export def fetch-lib [
     name: string  # lib name
 ] {
-    if (not (all-libs | any? ($it == $name))) {
+    if (not (all-libs | any ($it == $name))) {
         error make -u {msg: $"Library `($name)` is not supported, run `all-libs` to check for all available libs"}
     }
     echo $"going to download lib ($name)"
@@ -51,7 +51,7 @@ export def fetch-lib [
     let content = fetch $url
     let target_path = get-lib-path $name
     echo $"download complete, begin to save"
-    $content | save $target_path
+    $content | save -f $target_path
     echo "done"
 }
 
