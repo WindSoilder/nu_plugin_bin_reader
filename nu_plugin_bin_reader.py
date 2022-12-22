@@ -57,6 +57,7 @@ def signatures():
                 "vectorizes_over_list": False,
                 "input_output_types": [],
                 "allow_variants_without_examples": False,
+                "allows_unknown_args": False,
                 "optional_positional": [],
                 # FIXME: the rest positional is required, and it's not empty, I don't know if it's ok.
                 "rest_positional": {
