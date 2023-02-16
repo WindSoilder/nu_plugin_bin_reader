@@ -41,47 +41,50 @@ def signatures():
     return {
         "Signature": [
             {
-                "name": "from-binary",
-                "usage": "Read binary data",
-                "extra_usage": "",
-                "input_type": "Any",
-                "output_type": "Any",
-                "required_positional": [
-                    {
-                        "name": "format",
-                        "desc": "input binary format",
+                "sig": {
+                    "name": "from-binary",
+                    "usage": "Read binary data",
+                    "extra_usage": "",
+                    "input_type": "Any",
+                    "output_type": "Any",
+                    "required_positional": [
+                        {
+                            "name": "format",
+                            "desc": "input binary format",
+                            "shape": "String",
+                            "var_id": None,
+                        },
+                    ],
+                    "vectorizes_over_list": False,
+                    "input_output_types": [],
+                    "allow_variants_without_examples": False,
+                    "allows_unknown_args": False,
+                    "optional_positional": [],
+                    # FIXME: the rest positional is required, and it's not empty, I don't know if it's ok.
+                    "rest_positional": {
+                        "name": "rest",
+                        "desc": "rest value string",
                         "shape": "String",
                         "var_id": None,
                     },
-                ],
-                "vectorizes_over_list": False,
-                "input_output_types": [],
-                "allow_variants_without_examples": False,
-                "allows_unknown_args": False,
-                "optional_positional": [],
-                # FIXME: the rest positional is required, and it's not empty, I don't know if it's ok.
-                "rest_positional": {
-                    "name": "rest",
-                    "desc": "rest value string",
-                    "shape": "String",
-                    "var_id": None,
+                    "named": [
+                        {
+                            "long": "help",
+                            "short": "h",
+                            "arg": None,
+                            "required": False,
+                            "desc": "Display this help message",
+                            "var_id": None,
+                        },
+                    ],
+                    "search_terms": ["png"],
+                    "is_filter": False,
+                    "creates_scope": False,
+                    "category": "Experimental",
                 },
-                "named": [
-                    {
-                        "long": "help",
-                        "short": "h",
-                        "arg": None,
-                        "required": False,
-                        "desc": "Display this help message",
-                        "var_id": None,
-                    },
-                ],
-                "search_terms": ["png"],
-                "is_filter": False,
-                "creates_scope": False,
-                "category": "Experimental",
+                "examples": [],
             }
-        ]
+        ],
     }
 
 
@@ -152,6 +155,7 @@ def handle(binary_data, format, span):
 
 def tell_nushell_encoding():
     import sys
+
     sys.stdout.write(chr(4))
     for ch in "json":
         sys.stdout.write(chr(ord(ch)))

@@ -43,12 +43,12 @@ def get-lib-path [name: string] {
 export def fetch-lib [
     name: string  # lib name
 ] {
-    if (not (all-libs | any ($it == $name))) {
+    if (not (all-libs | any {|$it| $it == $name})) {
         error make -u {msg: $"Library `($name)` is not supported, run `all-libs` to check for all available libs"}
     }
     echo $"going to download lib ($name)"
     let url = $"https://formats.kaitai.io/($name)/src/python/($name).py"
-    let content = fetch $url
+    let content = http get $url
     let target_path = get-lib-path $name
     echo $"download complete, begin to save"
     $content | save -f $target_path
