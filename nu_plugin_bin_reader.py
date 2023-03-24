@@ -138,6 +138,9 @@ def process_call(plugin_call):
 
 def handle(binary_data, format, span):
     import importlib
+    import os
+    # add readers into lib.
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "reader"))
 
     try:
         module = importlib.import_module(f"reader.{format}")
