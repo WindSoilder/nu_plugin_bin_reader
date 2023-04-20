@@ -48,8 +48,8 @@ export def fetch-lib [
     }
     echo $"going to download lib ($name)"
     let url = $"https://formats.kaitai.io/($name)/src/python/($name).py"
-    let content = http get $url
-    let target_path = get-lib-path $name
+    let content = (http get $url)
+    let target_path = (get-lib-path $name)
     echo $"download complete, begin to save"
     $content | save -f $target_path
     echo "done"
@@ -59,7 +59,7 @@ export def fetch-lib [
 export def remove-lib [
     name: string  # lib name
 ] {
-    let lib_path = get-lib-path $name
+    let lib_path = (get-lib-path $name)
     if ($lib_path | path exists) {
         rm $lib_path
     } else {
@@ -77,5 +77,5 @@ export def remove-all-libs [] {
 #
 # Note: It's recommend to use `fetch-lib` to download the lib you need
 export def fetch-all-libs [] {
-    all-libs | each { |it| fetch-bin-lib $it }
+    all-libs | each { |it| fetch-lib $it }
 }
