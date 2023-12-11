@@ -18,7 +18,7 @@ export def all-libs [] {
         "fallout_dat", "ftl_dat", "gran_turismo_vol", "heaps_pak", "heroes_of_might_and_magic_agg",
         "heroes_of_might_and_magic_bmp", "minecraft_nbt", "quake_mdl", "quake_pak", "renderware_binary_stream",
         "saints_row_2_vpp_pc", "warcraft_2_pud", "shapefile_index", "shapefile_main", "dtb", "edid",
-        "mifare_classic", "bmp", "dicom", "exif", "gif", "gimp_brush", "icc_4", "ico", "jpeg", "nitf",
+        "mifare_classic", "bmp", "dicom", "exif", "gif", "gimp_brush", "ico", "jpeg", "nitf",
         "pcx", "pcx_dcx", "png", "psx_tim", "tga", "wmf", "xwd", "glibc_utmp", "sudoers_ts", "systemd_journal",
         "aix_utmp", "hashcat_restore", "mcap", "windows_evt_log", "compressed_resource", "dcmp_0", "dcmp_1",
         "dcmp_2", "dcmp_variable_length_integer", "ds_store", "mac_os_resource_snd", "resource_fork", "au", "avi",
